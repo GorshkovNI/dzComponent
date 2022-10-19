@@ -79,7 +79,7 @@
     cursor: pointer;
   }
   
-  .actionIconIncorrect {
+  .IconIncorrect {
     stroke: var(--color-light-blue);
   }
   
@@ -96,7 +96,7 @@
     color: var(--black);
   }
   
-  .actionIconDisabled {
+  .IconDisabled {
     fill: var(--black);
   }
   

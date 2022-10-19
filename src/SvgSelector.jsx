@@ -49,7 +49,7 @@ export const SvgSelector = (props) => {
                 fill="none"
                 />
             </svg>) 
-        case 'buttonIcon':
+        case 'loupe':
             return(
                 <svg
                     className={props.className}
@@ -63,6 +63,54 @@ export const SvgSelector = (props) => {
                         fill="none"
                     />
                 </svg>
+            )
+        case 'sun':
+            return(
+                <svg
+                    className={props.className}
+                    viewBox="0 0 16 16"
+                    fill="#8055FF"
+                    strok="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="8" cy="8" r="4" stroke="none" />
+                    <path d="M15 9L16 8L15 7H13V9H15Z" stroke="none" />
+                    <path d="M1 9L0 8L1 7H3V9H1Z" stroke="none" />
+                    <path d="M7 15L8 16L9 15V13H7V15Z" stroke="none" />
+                    <path d="M7 1L8 0L9 1V3H7V1Z" stroke="none" />
+                    <path
+                      d="M12.5 14H14L14 12.5L12.5 11L11 12.5L12.5 14Z"
+                      stroke="none"
+                    />
+                    <path
+                      d="M2 3.5L2 2L3.5 2L5 3.5L3.5 5L2 3.5Z"
+                      stroke="none"
+                    />
+                    <path
+                      d="M3.5 14H2L2 12.5L3.5 11L5 12.5L3.5 14Z"
+                      stroke="none"
+                    />
+                    <path
+                      d="M14 3.5V2L12.5 2L11 3.5L12.5 5L14 3.5Z"
+                      stroke="none"
+                    />
+                  </svg>
+            )
+        case 'filter':
+            return(
+                <svg className={props.className} width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L0 0L0 1.5L3 4.5V8L5 9V4.5L8 1.5V0Z" fill="white"/>
+                </svg>
+            )
+        case 'load':
+            return(
+                <svg className={props.className} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5026 7.5V8.5C2.5026 10.75 4.7526 13.5 8.0026 13.5C10.0001 13.5 11.6187 12.5 12.6001 11" stroke="#459DF5"/>
+                    <path d="M13.5 8.5V7.5C13.5 5.25 11.25 2.5 8 2.5C6.00003 2.5 4.38138 3.5 3.40003 5" stroke="#459DF5"/>
+                    <path d="M4.5 9.5L2.50254 7.5L0.752533 9.75" stroke="#459DF5"/>
+                    <path d="M11.5 6.5L13.5 8.5L15.25 6.25" stroke="#459DF5"/>
+                </svg>
+
             )
         default:
             <svg></svg>;

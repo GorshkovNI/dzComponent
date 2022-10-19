@@ -15,29 +15,25 @@ export const buttonTypes = {
     secondaryBlack: 'secondaryBlack'
 };
 
-export const Button = (
-    {classNames = buttonTypes.buttonMedium,
-    action = buttonTypes.secondaryBlack,
-    text = 'Применить'}
-) =>{
+export const Button = (props) =>{
 
     const buttonClassName = cn(styles.button, {
-        [styles.buttonBig]: classNames === buttonTypes.buttonBig,   
-        [styles.buttonMedium]: classNames === buttonTypes.buttonMedium,   
-        [styles.buttonSmall]: classNames === buttonTypes.buttonSmall, 
+        [styles.buttonBig]: props.size === buttonTypes.buttonBig,   
+        [styles.buttonMedium]: props.size === buttonTypes.buttonMedium,   
+        [styles.buttonSmall]: props.size === buttonTypes.buttonSmall, 
 
-        [styles.primary]: action === buttonTypes.primary,
-        [styles.secondary]: action === buttonTypes.secondary,
-        [styles.secondaryBlack]: action === buttonTypes.secondaryBlack
+        [styles.primary]: props.action === buttonTypes.primary,
+        [styles.secondary]: props.action === buttonTypes.secondary,
+        [styles.secondaryBlack]: props.action === buttonTypes.secondaryBlack
     })
 
-    let visibleText = (classNames === buttonTypes.buttonBig ? true : false || classNames === buttonTypes.buttonMedium ? true : false)
-    let visibleIcon = (classNames === buttonTypes.buttonBig ? true : false || classNames === buttonTypes.buttonSmall ? true : false)
+    let visibleText = (props.size === buttonTypes.buttonBig ? true : false || props.size === buttonTypes.buttonMedium ? true : false)
+    let visibleIcon = (props.size === buttonTypes.buttonBig ? true : false || props.size === buttonTypes.buttonSmall ? true : false)
     
     return(
         <button className={buttonClassName}>
-            {visibleIcon && <SvgSelector className={styles.buttonIcon} id='buttonIcon'/>}
-            {visibleText && <span className={styles.area}>{text}</span>}
+            {visibleIcon && <SvgSelector className={styles.buttonIcon} id={props.icon}/>}
+            {visibleText && <span className={styles.area}>{props.text}</span>}
         </button>
     )
 }

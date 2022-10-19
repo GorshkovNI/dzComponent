@@ -4,14 +4,27 @@ import styles from './Input.module.css'
 import cn from 'classnames'
 import { useState } from "react";
 
+const inputTypes = {
+    normal: 'normal',
+    incorrect: 'incorrect',
+    disabled: 'disabled'
+}
 
-export const Input = (props) => {
+
+export const Input = ({
+    className = inputTypes.incorrect
+}) => {
 
     const[value, setValue] = useState('')
 
     const viewInput = cn(styles.input, {
-        [styles.incorrect]: false,
-        [styles.disabled]: true
+        [styles.incorrect]: className === inputTypes.incorrect,
+        [styles.disabled]: className === inputTypes.disabled
+    })
+
+    const styleIcon = cn({
+        [styles.IconDisabled]: className === inputTypes.disabled,
+        [styles.IconIncorrect]: className === inputTypes.incorrect,
     })
 
     let changeText = (e) =>{
@@ -22,6 +35,7 @@ export const Input = (props) => {
         setValue('')
     }
 
+
    return(
         <div className={viewInput}>
             <label className={styles.inputLabel} for="incorrect">Дата и время заказа</label>
@@ -31,11 +45,10 @@ export const Input = (props) => {
                     type="text"
                     placeholder="Введите"
                     value={value}
-                    id="incorrect"
                     onChange={changeText}
                 />
                 <button className={styles.buttonAction} onClick={deleteText}>
-                    <SvgSelector className={`${styles.actionIcon} ${styles.actionIconDisabled}`} id="disabled"/>
+                    <SvgSelector className={`${styles.actionIcon} ${styleIcon}`} id={className}/>
                 </button>
             </div>
         </div>

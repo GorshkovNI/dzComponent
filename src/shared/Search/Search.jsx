@@ -15,6 +15,7 @@ export const Search = (props) => {
     }
 
     let deleteText = (e) =>{
+        setStatus(false)
         setValue('')
     }
     

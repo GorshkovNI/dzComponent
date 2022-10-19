@@ -87,6 +87,7 @@
   
   .primary .buttonIcon {
     stroke: var(--white);
+    fill: var(--white);
   }
 
   .secondary {
@@ -95,6 +96,7 @@
   
   .secondary .buttonIcon {
     stroke: var(--color-blue);
+    fill: var(--color-blue);
   }
   
   .secondary .area {
@@ -111,5 +113,6 @@
   
   .secondaryBlack .buttonIcon {
     stroke: var(--black);
+    fill: var(--black)
   }
   
