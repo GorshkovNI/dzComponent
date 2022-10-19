@@ -3,22 +3,41 @@ import styles from './Button.module.css'
 import cn from 'classnames';
 import { SvgSelector } from "../../SvgSelector";
 
-export const Button = () =>{
-    const buttonClassSize = cn(styles.button, {
-        [styles.buttonBig]: false,
-        [styles.buttonMedium]: true,    
-        [styles.buttonSmall]: false,    
-    })
-    const buttonClassColor = cn({  
-        [styles.buttonBlue]: true,
-        [styles.buttonTransparentBlue]: false,
-        [styles.buttonTransparentBlack]: false
+
+export const buttonTypes = {
+    buttonBig: 'buttonBig',
+    buttonMedium: 'buttonMedium',
+    buttonSmall: 'buttonSmall',
+
+    primary: 'primary',
+    delete: 'delete',
+    secondary: 'secondary',
+    secondaryBlack: 'secondaryBlack'
+};
+
+export const Button = (
+    {classNames = buttonTypes.buttonMedium,
+    action = buttonTypes.secondaryBlack,
+    text = 'Применить'}
+) =>{
+
+    const buttonClassName = cn(styles.button, {
+        [styles.buttonBig]: classNames === buttonTypes.buttonBig,   
+        [styles.buttonMedium]: classNames === buttonTypes.buttonMedium,   
+        [styles.buttonSmall]: classNames === buttonTypes.buttonSmall, 
+
+        [styles.primary]: action === buttonTypes.primary,
+        [styles.secondary]: action === buttonTypes.secondary,
+        [styles.secondaryBlack]: action === buttonTypes.secondaryBlack
     })
 
+    let visibleText = (classNames === buttonTypes.buttonBig ? true : false || classNames === buttonTypes.buttonMedium ? true : false)
+    let visibleIcon = (classNames === buttonTypes.buttonBig ? true : false || classNames === buttonTypes.buttonSmall ? true : false)
+    
     return(
-        <button className={`${buttonClassSize} ${buttonClassColor}`}>
-            {buttonClassSize.indexOf(styles.buttonMedium) !== -1 ? '' : <SvgSelector className={styles.buttonIcon} id='buttonIcon'/>}
-            {buttonClassSize.indexOf(styles.buttonSmall) !== -1 ? '' : <span className={styles.area}>Text here</span>}
+        <button className={buttonClassName}>
+            {visibleIcon && <SvgSelector className={styles.buttonIcon} id='buttonIcon'/>}
+            {visibleText && <span className={styles.area}>{text}</span>}
         </button>
     )
 }

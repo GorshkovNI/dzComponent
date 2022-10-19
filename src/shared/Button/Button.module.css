@@ -81,35 +81,35 @@
     margin: 0;
   }
   
-  .buttonBlue {
+  .primary {
     background-color: var(--color-blue);
   }
   
-  .buttonBlue .buttonIcon {
+  .primary .buttonIcon {
     stroke: var(--white);
   }
 
-  .buttonTransparentBlue {
+  .secondary {
     background-color: transparent;
   }
   
-  .buttonTransparentBlue .buttonIcon {
+  .secondary .buttonIcon {
     stroke: var(--color-blue);
   }
   
-  .buttonTransparentBlue .area {
+  .secondary .area {
     color: var(--color-blue);
   }
   
-  .buttonTransparentBlack {
+  .secondaryBlack {
     background-color: transparent;
   }
   
-  .buttonTransparentBlack .area {
+  .secondaryBlack .area {
     color: var(--color-bla);
   }
   
-  .buttonTransparentBlack .buttonIcon {
+  .secondaryBlack .buttonIcon {
     stroke: var(--black);
   }
   
