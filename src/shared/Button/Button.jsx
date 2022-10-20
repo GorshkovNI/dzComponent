@@ -27,8 +27,8 @@ export const Button = (props) =>{
         [styles.secondaryBlack]: props.action === buttonTypes.secondaryBlack
     })
 
-    let visibleText = (props.size === buttonTypes.buttonBig ? true : false || props.size === buttonTypes.buttonMedium ? true : false)
-    let visibleIcon = (props.size === buttonTypes.buttonBig ? true : false || props.size === buttonTypes.buttonSmall ? true : false)
+    let visibleText = (props.size !== buttonTypes.buttonSmall ? true : false)
+    let visibleIcon = (props.size !== buttonTypes.buttonMedium ? true : false)
     
     return(
         <button className={buttonClassName}>

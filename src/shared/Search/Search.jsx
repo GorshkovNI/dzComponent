@@ -2,12 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { SvgSelector } from "../../SvgSelector";
 import styles from "./Search.module.css"
+import cn from 'classnames'
+
+
 
 
 export const Search = (props) => {
 
     const [status, setStatus] = useState(false)
     const [value, setValue] = useState('')
+
     
     let checkEmpty = (e) =>{
         e.target.value === '' ? setStatus(false) :  setStatus(true)
@@ -26,7 +30,7 @@ export const Search = (props) => {
                 <input
                     className={styles.text}
                     type="text"
-                    placeholder="Номер заказа или ФИО"
+                    placeholder="кто"
                     value={value}
                     onChange={checkEmpty}
                 />
