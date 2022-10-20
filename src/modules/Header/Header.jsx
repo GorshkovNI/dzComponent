@@ -1,5 +1,5 @@
 import React from "react";
-import { FilterBlock } from "./FilterBlock/Filter";
+import { FilterBlock } from "./FilterBlock/FilterBlock";
 import styles from './Header.module.css'
 import { InfoBlock } from "./InfoBlock/InfoBlock";
 import { SearchBlock } from "./SearchBlock/SearchBlock";

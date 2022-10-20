@@ -1,5 +1,5 @@
 import React from "react";
-import { SvgSelector } from "../../SvgSelector";
+import { SvgSelector } from "../../../SvgSelector";
 import styles from './Input.module.css'
 import cn from 'classnames'
 import { useState } from "react";
@@ -48,10 +48,8 @@ export const Input = (props) => {
         setValue('')
     }
 
-
    return(
         <div className={viewInput}>
-            {props.text && <label className={styles.inputLabel} for="incorrect">{props.text}</label>}
             <div className={areaSize}>
                 <input
                     className={styles.text}

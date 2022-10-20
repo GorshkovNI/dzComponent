@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../../../shared/Button/Button";
-import { Input } from "../../../shared/Input/Input";
+import { Input } from "../../../shared/Inputs/Input/Input";
 import { Search } from "../../../shared/Search/Search";
-import styles from './Filter.module.css'
+import styles from './FilterBlock.module.css'
 
 export const FilterBlock = () =>{
     return(
@@ -16,7 +16,12 @@ export const FilterBlock = () =>{
                     </div>
                 </div>
                 <div className={styles.status}>
-                    <Input size='medium' text='Статус заказа'/>
+                    <div className={styles.infoBlock}>
+                        <span className={styles.text}>Статус заказа</span>
+                        <div className={styles.dateInput}>
+                            <Input size='medium' />
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.infoBlock}>
                     <span className={styles.text}>Сумма заказа</span>

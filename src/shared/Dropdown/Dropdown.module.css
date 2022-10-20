@@ -1,0 +1,110 @@
+:root {
+    --color-blue: #459df5;
+    --color-red: #f53152;
+    --color-light-blue: #bad8f5;
+    --black: #000000;
+    --white: #ffff;
+    --border: #7758d3;
+  }
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    height: 13rem;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    width: 10rem;
+    box-sizing: border-box;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1),
+      0 0.25rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.125rem rgba(0, 0, 0, 0.1);
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  .list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 2rem;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    background-color: inherit;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  .text {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+  }
+  
+
+  .checkbox {
+    position: relative;
+  }
+  
+  .area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .input {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--white);
+    border: 1px solid var(--color-light-blue);
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  .input:active {
+    background-color: var(--color-light-blue);
+  }
+  
+  .input:checked {
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
+  }
+  
+  .input:checked + .icon {
+    opacity: 1;
+  }
+  
+  .icon {
+    position: absolute;
+    opacity: 0;
+    fill: var(--white);
+    width: 1rem;
+    height: 1rem;
+    left: 0;
+    top: 0;
+    transition: opacity 0.25s ease-in;
+  }
+
+  .icon + .text {
+    margin-left: 0.5rem;
+  }
+  
+  .input:checked ~ .text {
+    color: var(--color-blue);
+  }
+
+  
