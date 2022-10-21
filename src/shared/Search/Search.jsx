@@ -1,29 +1,20 @@
 import React from "react";
-import { useState } from "react";
 import { SvgSelector } from "../../SvgSelector";
 import styles from "./Search.module.css"
-import cn from 'classnames'
+
+const noop = () => {}
 
 
+export const Search = ({
+    isActive,
+    onCheckedEmpty = noop,
+    deleteText = noop,
+    status,
+    value
+}) => {
 
-
-export const Search = (props) => {
-
-    const [status, setStatus] = useState(false)
-    const [value, setValue] = useState('')
-
-    
-    let checkEmpty = (e) =>{
-        e.target.value === '' ? setStatus(false) :  setStatus(true)
-        setValue(e.target.value)
-    }
-
-    let deleteText = (e) =>{
-        setStatus(false)
-        setValue('')
-    }
-    
     return(
+        
         <div className={styles.searchbar}>
             <div className={styles.area}>
                 <SvgSelector className={styles.icon} id='search'/>
@@ -32,7 +23,7 @@ export const Search = (props) => {
                     type="text"
                     placeholder="кто"
                     value={value}
-                    onChange={checkEmpty}
+                    onChange={onCheckedEmpty}
                 />
                 {status && <button className={styles.searchButtonClose}>
                         <svg

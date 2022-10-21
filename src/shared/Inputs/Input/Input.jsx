@@ -4,6 +4,8 @@ import styles from './Input.module.css'
 import cn from 'classnames'
 import { useState } from "react";
 
+const noop = () => {}
+
 const inputTypes = {
     normal: 'normal',
     incorrect: 'incorrect',
@@ -17,12 +19,11 @@ const areaTypes = {
     lsmall: 'lsmall'
 }
 
-
-
-export const Input = (props) => {
-
-    const[value, setValue] = useState('')
-
+export const Input = ({
+    onChangeText = noop,
+    deleteText = noop,
+    ...props
+}) => {
     const viewInput = cn(styles.input, {
         [styles.incorrect]: props.className === inputTypes.incorrect,
         [styles.disabled]: props.className === inputTypes.disabled,
@@ -35,18 +36,12 @@ export const Input = (props) => {
         [styles.lsmall]: areaTypes.lsmall === props.size
     })
 
-    const styleIcon = cn({
-        [styles.IconDisabled]: props.className === inputTypes.disabled,
+    const styleIcon = cn(styles.actionIcon,{
+        [styles.IconNormal]: props.className === inputTypes.normal,
+        [styles.IcoDisabled]: props.className === inputTypes.disabled,
         [styles.IconIncorrect]: props.className === inputTypes.incorrect,
     })
 
-    let changeText = (e) =>{
-        setValue(e.target.value) 
-    }
-
-    let deleteText = () =>{
-        setValue('')
-    }
 
    return(
         <div className={viewInput}>
@@ -55,11 +50,11 @@ export const Input = (props) => {
                     className={styles.text}
                     type="text"
                     placeholder="Введите"
-                    value={value}
-                    onChange={changeText}
+                    value={props.value}
+                    onChange={onChangeText}
                 />
                 <button className={styles.buttonAction} onClick={deleteText}>
-                    <SvgSelector className={`${styles.actionIcon} ${styleIcon}`} id={props.className}/>
+                    <SvgSelector className={styleIcon} id='close' />
                 </button>
             </div>
         </div>

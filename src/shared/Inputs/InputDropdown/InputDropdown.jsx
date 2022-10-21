@@ -23,6 +23,12 @@ const areaTypes = {
 export const InputDropdown = (props) => {
 
     const [visible, setVisible] = useState(true)
+    const [text, setText] = useState('')
+
+    const sText = (e) =>{
+        setText(e)
+        console.log(text)
+    }
 
     const isVisible = (e) => {
         setVisible(!visible)
@@ -34,6 +40,11 @@ export const InputDropdown = (props) => {
         [styles.small]: areaTypes.small === props.size,
         [styles.lsmall]: areaTypes.lsmall === props.size
     })
+
+    let showText = (e) =>{
+        const {name, checked} = e.target
+        console.log(name, checked)
+    }
 
    return(
         <div className={styles.input} onClick={isVisible}>
@@ -48,10 +59,9 @@ export const InputDropdown = (props) => {
                     <SvgSelector className={styles.actionIcon} id='arrow'/>
                 </button>
                 <div className={`${styles.dropdown} ${visible ? styles.active : ''}`}>
-                <Dropdown />
+                    <Dropdown showText = {showText} onShowText = {sText}/>
                 </div>
             </div>
-            
         </div>
    ) 
 }

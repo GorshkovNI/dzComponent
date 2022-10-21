@@ -118,6 +118,18 @@ export const SvgSelector = (props) => {
                     <path d="M5 6H11V6.5L8.25 11H7.75L5 6.5V6Z" stroke="none"/>
                 </svg>
             )
+        case 'close':
+            return(
+                <svg
+                    className={props.className}
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="#8055FF"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none" />
+                 </svg>
+            )
         default:
             <svg></svg>;
     }

@@ -108,4 +108,9 @@
   .IconDisabled {
     fill: var(--black);
   }
+
+  .IconNormal{
+    stroke: var(--color-light-blue);
+    fill: var(--color-light-blue);
+  }
   

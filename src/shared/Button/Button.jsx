@@ -5,9 +5,9 @@ import { SvgSelector } from "../../SvgSelector";
 
 
 export const buttonTypes = {
-    buttonBig: 'buttonBig',
-    buttonMedium: 'buttonMedium',
-    buttonSmall: 'buttonSmall',
+    big: 'big',
+    medium: 'medium',
+    small: 'small',
 
     primary: 'primary',
     delete: 'delete',
@@ -18,17 +18,17 @@ export const buttonTypes = {
 export const Button = (props) =>{
 
     const buttonClassName = cn(styles.button, {
-        [styles.buttonBig]: props.size === buttonTypes.buttonBig,   
-        [styles.buttonMedium]: props.size === buttonTypes.buttonMedium,   
-        [styles.buttonSmall]: props.size === buttonTypes.buttonSmall, 
+        [styles.big]: props.size === buttonTypes.big,   
+        [styles.medium]: props.size === buttonTypes.medium,   
+        [styles.small]: props.size === buttonTypes.small, 
 
         [styles.primary]: props.action === buttonTypes.primary,
         [styles.secondary]: props.action === buttonTypes.secondary,
         [styles.secondaryBlack]: props.action === buttonTypes.secondaryBlack
     })
 
-    let visibleText = (props.size !== buttonTypes.buttonSmall ? true : false)
-    let visibleIcon = (props.size !== buttonTypes.buttonMedium ? true : false)
+    let visibleText = (props.size !== buttonTypes.small ? true : false)
+    let visibleIcon = (props.size !== buttonTypes.medium ? true : false)
     
     return(
         <button className={buttonClassName}>

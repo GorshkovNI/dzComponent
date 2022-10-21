@@ -7,7 +7,7 @@ export const InfoBlock = (props) => {
     return(
         <div className={styles.wrapper}>
             <span className={styles.label}>Список заказов</span>
-            <Button size = 'buttonBig' action = 'secondary' text = 'Светлая тема' icon = 'sun'/>
+            <Button size = 'big' action = 'secondary' text = 'Светлая тема' icon = 'sun'/>
         </div>
     )
 }

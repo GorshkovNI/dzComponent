@@ -11,11 +11,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Button size = 'buttonBig' action = 'secondaryBlack' text = 'Применить' icon = 'loupe'/>
-      <Search />
-      <Input />
-      <Button size = 'buttonBig' action = 'secondary' text = 'Светлая тема' icon = 'sun'/> */}
-      <InputDropdown size='medium'/>
     </div>
   );
 }
