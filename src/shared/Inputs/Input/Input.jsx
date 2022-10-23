@@ -2,7 +2,7 @@ import React from "react";
 import { SvgSelector } from "../../../SvgSelector";
 import styles from './Input.module.css'
 import cn from 'classnames'
-import { useState } from "react";
+
 
 const noop = () => {}
 

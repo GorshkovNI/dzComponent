@@ -2,6 +2,8 @@ import React from "react";
 import styles from './Button.module.css'
 import cn from 'classnames';
 import { SvgSelector } from "../../SvgSelector";
+import { VisibleContext } from "../../modules/Header/Header";
+
 
 
 export const buttonTypes = {
@@ -29,11 +31,15 @@ export const Button = (props) =>{
 
     let visibleText = (props.size !== buttonTypes.small ? true : false)
     let visibleIcon = (props.size !== buttonTypes.medium ? true : false)
-    
     return(
-        <button className={buttonClassName}>
-            {visibleIcon && <SvgSelector className={styles.buttonIcon} id={props.icon}/>}
-            {visibleText && <span className={styles.area}>{props.text}</span>}
-        </button>
+        <VisibleContext.Consumer>
+            {({toggleFilter}) =>(
+                <button className={buttonClassName} onClick={toggleFilter}>
+                    {visibleIcon && <SvgSelector className={styles.buttonIcon} id={props.icon}/>}
+                    {visibleText && <span className={styles.area}>{props.text}</span>}
+                </button>
+            )}
+        </VisibleContext.Consumer>
     )
+    
 }
