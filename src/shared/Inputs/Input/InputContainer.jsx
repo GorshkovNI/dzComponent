@@ -1,30 +1,31 @@
-import React from "react";
-import { SvgSelector } from "../../../SvgSelector";
-import styles from './Input.module.css'
-import cn from 'classnames'
-import { useState } from "react";
-import { Input } from "./Input";
-
+import React from 'react';
+import { useState } from 'react';
+import { Input } from './Input';
 
 export const InputContainer = (props) => {
-    
-    const[value, setValue] = useState('')
+  const [value, setValue] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
 
-    let changeText = (e) =>{
-        setValue(e.target.value) 
-    }
+  const changeText = (e) => {
+    setValue(e.target.value);
+    e.target.value === '' ? setIsVisible(false) : setIsVisible(true);
+  };
 
-    let deleteText = () =>{
-        setValue('')
-    }
+  const deleteText = () => {
+    setValue('');
+    setIsVisible(false);
+  };
 
-   return(
-       <Input 
-        className={props.className}
-        size={props.size}
-        value={value}
-        onChangeText={changeText}
-        deleteText={deleteText}
-       />
-   ) 
-}
+  return (
+    <Input
+      className={props.className}
+      label={props.label}
+      placeholder={props.placeholder}
+      size={props.size}
+      value={value}
+      onChangeText={changeText}
+      deleteText={deleteText}
+      isVisible={isVisible}
+    />
+  );
+};
