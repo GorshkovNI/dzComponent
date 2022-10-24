@@ -4,38 +4,35 @@ import { InputDropdown } from './InputDropdown';
 
 export const StateContext = React.createContext();
 
-const filterName = [
-  { id: 1, label: 'Новый' },
-  { id: 2, label: 'Расчет' },
-  { id: 3, label: 'Подтвержден' },
-  { id: 4, label: 'Отложен' },
-  { id: 5, label: 'Выполнен' },
-  { id: 6, label: 'Отменен' },
-];
-
 export const InputDropdownContainer = (props) => {
   const [visible, setVisible] = useState(true);
-  const [value, setValue] = useState('Любой');
+  const [arrFilterValue, setFilterValue] = useState([]);
 
   const handleIsVisible = () => {
     setVisible(!visible);
   };
 
+  const fillInput = (e) => {
+    let value = e.target.value;
+    let index = arrFilterValue.indexOf(value);
+    console.log(typeof value, index);
+    index <= -1
+      ? setFilterValue([...arrFilterValue, value])
+      : setFilterValue([
+          ...arrFilterValue.slice(0, index),
+          ...arrFilterValue.slice(index + 1),
+        ]);
+    console.log(arrFilterValue);
+  };
+
   return (
-    <StateContext.Provider
-      value={{
-        returnText: (e) => {
-          setValue(e.target.value);
-        },
-        filterName: filterName,
-      }}
-    >
+    <StateContext.Provider value={{ returnText: fillInput }}>
       <InputDropdown
         size={props.size}
         placeheolder={props.placeheolder}
         isVisible={handleIsVisible}
         visible={visible}
-        value={value}
+        value={arrFilterValue}
       />
     </StateContext.Provider>
   );
